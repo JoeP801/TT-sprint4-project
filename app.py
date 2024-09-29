@@ -6,7 +6,7 @@ import plotly.express as px
 
 
 # read dataset
-vehicles_df = pd.read_csv('C:/Users/joe62/Git/TT-sprint4-project/vehicles_us.csv')
+vehicles_df = pd.read_csv('vehicles_us.csv')
 
 # set up header
 st.header("Vehicle Dataset Analysis Dashboard")
