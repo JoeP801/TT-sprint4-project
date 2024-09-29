@@ -44,9 +44,13 @@ To launch this project on your local machine, follow these steps:
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
 4. **Install the required packages**:
+   ```bash
    pip install -r requirements.txt
 
 5. **Run the Streamlit application**:
+   ```bash
    streamlit run app.py
 
-6. **Open the app in your browser** at http://localhost:8501
+6. **Open the app in your browser** 
+   ```bash
+   at http://localhost:8501
