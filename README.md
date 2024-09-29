@@ -3,9 +3,9 @@ Triple Ten sprint4 final project
 
 #### **Be kind to the noobs that you meet**
 
-**my render project URL:**   https://tt-sprint4-project-1.onrender.com/
+**my render project URL:**   https://tt-sprint4-project.onrender.com
 
-## Vehicle Analysis Dashboard
+## Simple Vehicle Analysis Dashboard
 
 ### Description
 
