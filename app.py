@@ -37,7 +37,6 @@ price_histogram = px.histogram(filtered_price_df,
                                 title='Price Distribution of Vehicles')
 st.plotly_chart(price_histogram)
 
-
 # model Year distribution
 st.subheader("Model Year Distribution")
 show_recent_models = st.checkbox("Show only vehicles from model year 2000 and after")
@@ -54,8 +53,7 @@ model_year_histogram = px.histogram(filtered_df,
                                      title='Model Year Distribution of Vehicles')
 st.plotly_chart(model_year_histogram)
 
-
-# scatter plot of price vs. model_year
+# scatter plot of price vs model_year
 st.subheader("Price vs. Model Year")
 show_price_filter = st.checkbox("Show Only Vehicles Priced Above $20,000")
 
@@ -93,11 +91,35 @@ average_price_bar = px.bar(average_price_by_manufacturer, x='Manufacturer', y='A
                             labels={'Average Price': 'Average Price ($)'})
 st.plotly_chart(average_price_bar)
 
-# price vs. odometer
+# price vs odometer
 st.subheader("Price vs. Odometer Reading")
-price_vs_odometer = px.scatter(vehicles_df, x='odometer', y='price', 
-                                title='Vehicle Price vs. Odometer Reading', 
-                                labels={'odometer': 'Odometer Reading (miles)', 'price': 'Price ($)'},
-                                hover_data=['manufacturer'])
+
+# create checkboxes for filtering
+odometer_under_100k = st.checkbox('Odometer < 100,000 miles')
+odometer_under_50k = st.checkbox('Odometer < 50,000 miles')
+price_under_30k = st.checkbox('Price < $30,000')
+price_under_15k = st.checkbox('Price < $15,000')
+
+# create filtered dataframe
+filtered_odometer_df = vehicles_df.copy()
+
+if odometer_under_100k:
+    filtered_odometer_df = filtered_odometer_df[filtered_odometer_df['odometer'] < 100000]
+if odometer_under_50k:
+    filtered_odometer_df = filtered_odometer_df[filtered_odometer_df['odometer'] < 50000]
+if price_under_30k:
+    filtered_odometer_df = filtered_odometer_df[filtered_odometer_df['price'] < 30000]
+if price_under_15k:
+    filtered_odometer_df = filtered_odometer_df[filtered_odometer_df['price'] < 15000]
+
+# create scatter plot with filters
+price_vs_odometer = px.scatter(
+    filtered_odometer_df, 
+    x='odometer', 
+    y='price', 
+    title='Vehicle Price vs. Odometer Reading', 
+    labels={'odometer': 'Odometer Reading (miles)', 'price': 'Price ($)'},
+    hover_data=['manufacturer']
+)
 
 st.plotly_chart(price_vs_odometer)
