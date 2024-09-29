@@ -32,10 +32,13 @@ if show_price_filter:
 else:
     filtered_df = vehicles_df
 
-price_vs_year = px.scatter(filtered_df, x='model_year', y='price', 
-                            title='Vehicle Price vs. Model Year', 
-                            labels={'model_year': 'Model Year', 'price': 'Price ($)'},
-                            hover_data=['manufacturer'])
+price_vs_year = px.scatter(
+    filtered_df,
+    x='model_year',
+    y='price',
+    title='Price vs. Model Year',
+    hover_data=['price', 'model_year']  
+    )
 
 st.plotly_chart(price_vs_year)
 
