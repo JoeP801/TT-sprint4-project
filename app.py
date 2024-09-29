@@ -8,6 +8,12 @@ import plotly.express as px
 # read dataset
 vehicles_df = pd.read_csv('vehicles_us.csv')
 
+# split manufacturer data from model column
+vehicles_df[['manufacturer', 'model']] = vehicles_df['model'].str.extract(r'(\w+)\s+(.*)')
+vehicles_df = vehicles_df[['price', 'model_year', 'manufacturer', 'model', 'condition', 'cylinders',
+                           'fuel', 'odometer', 'transmission', 'type', 'paint_color', 'is_4wd', 'date_posted', 
+                           'days_listed']]
+
 # set up header
 st.header("Vehicle Dataset Analysis Dashboard")
 
