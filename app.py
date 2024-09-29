@@ -19,13 +19,17 @@ st.header("Vehicle Dataset Analysis Dashboard")
 
 # price distribution
 st.subheader("Price Distribution")
-filter_price = st.checkbox("Show only vehicles priced under $60,000")
+filter_price_60k = st.checkbox("Show only vehicles priced under $60,000")
+filter_price_20k = st.checkbox("Show only vehicles priced under $20,000")
 
-# filter based on checkbox selection
-if filter_price:
-    filtered_price_df = vehicles_df[vehicles_df['price'] < 60000]
-else:
-    filtered_price_df = vehicles_df
+# filter based on checkbox selections
+filtered_price_df = vehicles_df.copy()
+
+if filter_price_60k:
+    filtered_price_df = filtered_price_df[filtered_price_df['price'] < 60000]
+
+if filter_price_20k:
+    filtered_price_df = filtered_price_df[filtered_price_df['price'] < 20000]
 
 price_histogram = px.histogram(filtered_price_df, 
                                 x='price', 
@@ -34,7 +38,7 @@ price_histogram = px.histogram(filtered_price_df,
 st.plotly_chart(price_histogram)
 
 
-# model Year Distribution
+# model Year distribution
 st.subheader("Model Year Distribution")
 show_recent_models = st.checkbox("Show only vehicles from model year 2000 and after")
 
