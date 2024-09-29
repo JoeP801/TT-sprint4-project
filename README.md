@@ -1,7 +1,7 @@
 # TT-sprint4-project
 Triple Ten sprint4 final project
 
-**Be kind to the noobs that you meet**
+#### **Be kind to the noobs that you meet**
 
 **my render project URL:**   https://tt-sprint4-project-1.onrender.com/
 
@@ -33,19 +33,19 @@ To launch this project on your local machine, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/JoeP801/TT-sprint4-project.git
+   cd TT-sprint4-project
 
 2. **Navigate to the project directory** (if not already there).
 
 3. **Create a virtual environment** (optional but recommended):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   source venv/bin/activate / Windows use `venv\Scripts\activate`
 
 4. **Install the required packages**:
    ```bash
-   pip install -r requirements.txt
+   pip install streamlit & pip install -r requirements.txt
 
 5. **Run the Streamlit application**:
    ```bash
@@ -53,4 +53,6 @@ To launch this project on your local machine, follow these steps:
 
 6. **Open the app in your browser** 
    ```bash
-   at http://localhost:8501
+   at http://localhost:10000
+   or http://localhost:8501
+   
