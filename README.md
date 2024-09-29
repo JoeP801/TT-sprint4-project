@@ -1,24 +1,24 @@
 # TT-sprint4-project
 Triple Ten sprint4 final project
 
-Be kind to the noobs that you meet
+**Be kind to the noobs that you meet**
 
-my render project URL - https://tt-sprint4-project-1.onrender.com/
+**my render project URL:**   https://tt-sprint4-project-1.onrender.com/
 
-# Vehicle Analysis Dashboard
+## Vehicle Analysis Dashboard
 
-## Description
+### Description
 
 This project is a web application designed to analyze a dataset of vehicles. It provides insights into various aspects of the vehicle market, such as price distribution, manufacturer statistics, and the relationship between vehicle prices and features like model year and odometer readings. The application is built using Streamlit and utilizes Plotly for interactive visualizations.
 
-## Libraries and Methods Used
+### Libraries and Methods Used
 
 - **Pandas**: For data manipulation and analysis.
 - **Streamlit**: For creating the web application interface.
 - **Plotly Express**: For generating interactive plots and visualizations.
 - **NumPy**: For numerical operations and handling arrays.
 
-## Features
+### Features
 
 - Price distribution histogram.
 - Model year distribution histogram.
@@ -27,7 +27,7 @@ This project is a web application designed to analyze a dataset of vehicles. It 
 - Price vs. Odometer scatter plot.
 - Interactive components like checkboxes for dynamic data display.
 
-## Getting Started
+### Getting Started
 
 To launch this project on your local machine, follow these steps:
 
