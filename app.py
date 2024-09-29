@@ -17,17 +17,39 @@ vehicles_df = vehicles_df[['price', 'model_year', 'manufacturer', 'model', 'cond
 # set up header
 st.header("Vehicle Dataset Analysis Dashboard")
 
-# histogram of vehicle prices
+# price distribution
 st.subheader("Price Distribution")
-price_histogram = px.histogram(vehicles_df, x='price', nbins=50, title='Price Distribution of Vehicles')
+filter_price = st.checkbox("Show only vehicles priced under $60,000")
+
+# filter based on checkbox selection
+if filter_price:
+    filtered_price_df = vehicles_df[vehicles_df['price'] < 60000]
+else:
+    filtered_price_df = vehicles_df
+
+price_histogram = px.histogram(filtered_price_df, 
+                                x='price', 
+                                nbins=50, 
+                                title='Price Distribution of Vehicles')
 st.plotly_chart(price_histogram)
 
-# histogram of model year distribution
+
+# model Year Distribution
 st.subheader("Model Year Distribution")
-model_year_histogram = px.histogram(vehicles_df[vehicles_df['model_year'] != 0], 
-                                     x='model_year', nbins=50, 
+show_recent_models = st.checkbox("Show only vehicles from model year 2000 and after")
+
+# filter based on checkbox selection
+if show_recent_models:
+    filtered_df = vehicles_df[(vehicles_df['model_year'] != 0) & (vehicles_df['model_year'] > 2000)]
+else:
+    filtered_df = vehicles_df[vehicles_df['model_year'] != 0]
+
+model_year_histogram = px.histogram(filtered_df, 
+                                     x='model_year', 
+                                     nbins=50, 
                                      title='Model Year Distribution of Vehicles')
 st.plotly_chart(model_year_histogram)
+
 
 # scatter plot of price vs. model_year
 st.subheader("Price vs. Model Year")
