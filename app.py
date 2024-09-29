@@ -15,12 +15,12 @@ vehicles_df = vehicles_df[['price', 'model_year', 'manufacturer', 'model', 'cond
                            'days_listed']]
 
 # set up header
-st.header("Vehicle Dataset Analysis Dashboard")
+st.header('Vehicle Dataset Analysis Dashboard')
 
 # price distribution
-st.subheader("Price Distribution")
-filter_price_60k = st.checkbox("Show only vehicles priced under $60,000")
-filter_price_20k = st.checkbox("Show only vehicles priced under $20,000")
+st.subheader('Price Distribution')
+filter_price_60k = st.checkbox('Vehicles under $60,000')
+filter_price_20k = st.checkbox('Vehicles under $20,000')
 
 # filter based on checkbox selections
 filtered_price_df = vehicles_df.copy()
@@ -38,8 +38,8 @@ price_histogram = px.histogram(filtered_price_df,
 st.plotly_chart(price_histogram)
 
 # model Year distribution
-st.subheader("Model Year Distribution")
-show_recent_models = st.checkbox("Show only vehicles from model year 2000 and after")
+st.subheader('Model Year Distribution')
+show_recent_models = st.checkbox('Vehicles from 2000 and newer')
 
 # filter based on checkbox selection
 if show_recent_models:
@@ -54,8 +54,8 @@ model_year_histogram = px.histogram(filtered_df,
 st.plotly_chart(model_year_histogram)
 
 # scatter plot of price vs model_year
-st.subheader("Price vs. Model Year")
-show_price_filter = st.checkbox("Show Only Vehicles Priced Above $20,000")
+st.subheader('Price vs. Model Year')
+show_price_filter = st.checkbox('Vehicles Above $20,000')
 
 if show_price_filter:
     filtered_df = vehicles_df[vehicles_df['price'] > 20000]
@@ -73,7 +73,7 @@ price_vs_year = px.scatter(
 st.plotly_chart(price_vs_year)
 
 # manufacturer statistics
-st.subheader("Manufacturer Statistics")
+st.subheader('Manufacturer Statistics')
 
 # bar plot for number of vehicles by manufacturer
 manufacturer_counts = vehicles_df['manufacturer'].value_counts().reset_index()
@@ -92,13 +92,13 @@ average_price_bar = px.bar(average_price_by_manufacturer, x='Manufacturer', y='A
 st.plotly_chart(average_price_bar)
 
 # price vs odometer
-st.subheader("Price vs. Odometer Reading")
+st.subheader('Price vs. Odometer Reading')
 
 # create checkboxes for filtering
-odometer_under_100k = st.checkbox('Odometer < 100,000 miles')
-odometer_under_50k = st.checkbox('Odometer < 50,000 miles')
-price_under_30k = st.checkbox('Price < $30,000')
-price_under_15k = st.checkbox('Price < $15,000')
+odometer_under_100k = st.checkbox('Vehicles with less than 100,000 miles')
+odometer_under_50k = st.checkbox('Vehicles with less than 50,000 miles')
+price_under_30k = st.checkbox('Vehicles under $30,000')
+price_under_15k = st.checkbox('Vehicles under $15,000')
 
 # create filtered dataframe
 filtered_odometer_df = vehicles_df.copy()
